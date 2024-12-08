@@ -208,8 +208,6 @@ dynamic deserializeParam<T>(
         switch (T) {
           case GetLocationsRow:
             return GetLocationsRow(data);
-          case GetDataByLocationRow:
-            return GetDataByLocationRow(data);
           default:
             return null;
         }

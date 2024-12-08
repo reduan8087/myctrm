@@ -32,11 +32,6 @@ class SQLiteManager {
         _database,
       );
 
-  Future<List<GetDataByLocationRow>> getDataByLocation() =>
-      performGetDataByLocation(
-        _database,
-      );
-
   /// END READ QUERY CALLS
 
   /// START UPDATE QUERY CALLS

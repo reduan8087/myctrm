@@ -1,8 +1,6 @@
 import '/backend/sqlite/sqlite_manager.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -43,7 +41,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'Page Title',
+            'MyCTRM',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Inter Tight',
                   color: Colors.white,
@@ -77,46 +75,55 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                     );
                   }
-                  final dropDownGetLocationsRowList = snapshot.data!;
+                  final listViewGetLocationsRowList = snapshot.data!;
 
-                  return FlutterFlowDropDown<String>(
-                    controller: _model.dropDownValueController ??=
-                        FormFieldController<String>(null),
-                    options: const ['Option 1', 'Option 2', 'Option 3'],
-                    onChanged: (val) =>
-                        safeSetState(() => _model.dropDownValue = val),
-                    width: 200.0,
-                    height: 40.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          letterSpacing: 0.0,
+                  return ListView.builder(
+                    padding: EdgeInsets.zero,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: listViewGetLocationsRowList.length,
+                    itemBuilder: (context, listViewIndex) {
+                      final listViewGetLocationsRow =
+                          listViewGetLocationsRowList[listViewIndex];
+                      return Material(
+                        color: Colors.transparent,
+                        child: ListTile(
+                          title: Text(
+                            listViewGetLocationsRow.location,
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Inter Tight',
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          subtitle: Text(
+                            listViewIndex.toString(),
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
+                          ),
+                          tileColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          dense: false,
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 12.0, 0.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
                         ),
-                    hintText: 'Select...',
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    elevation: 2.0,
-                    borderColor: Colors.transparent,
-                    borderWidth: 0.0,
-                    borderRadius: 8.0,
-                    margin:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
-                    hidesUnderline: true,
-                    isOverButton: false,
-                    isSearchable: false,
-                    isMultiSelect: false,
+                      );
+                    },
                   );
                 },
-              ),
-              Text(
-                'Hello World',
-                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Inter',
-                      letterSpacing: 0.0,
-                    ),
               ),
             ],
           ),
