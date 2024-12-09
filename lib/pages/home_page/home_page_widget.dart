@@ -85,42 +85,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     itemBuilder: (context, listViewIndex) {
                       final listViewGetLocationsRow =
                           listViewGetLocationsRowList[listViewIndex];
-                      return Material(
-                        color: Colors.transparent,
-                        child: ListTile(
-                          title: Text(
-                            listViewGetLocationsRow.location,
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .override(
-                                  fontFamily: 'Inter Tight',
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          subtitle: Text(
-                            listViewIndex.toString(),
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                          tileColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          dense: false,
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      );
+                      return Container(
+                          width: 100, height: 100, color: Colors.green);
                     },
                   );
                 },
