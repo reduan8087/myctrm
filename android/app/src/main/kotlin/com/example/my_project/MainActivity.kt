@@ -1,4 +1,4 @@
-package com.mycompany.myctrm
+package com.txmr.myctrm
 
 import io.flutter.embedding.android.FlutterActivity
 
