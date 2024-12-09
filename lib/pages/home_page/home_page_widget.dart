@@ -1,3 +1,4 @@
+import '/backend/sqlite/sqlite_manager.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +69,46 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             fontFamily: 'Inter Tight',
                             letterSpacing: 0.0,
                           ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: FutureBuilder<List<GetLocationsRow>>(
+                      future: SQLiteManager.instance.getLocations(),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
+                              ),
+                            ),
+                          );
+                        }
+                        final listViewGetLocationsRowList = snapshot.data!;
+
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: listViewGetLocationsRowList.length,
+                          itemBuilder: (context, listViewIndex) {
+                            final listViewGetLocationsRow =
+                                listViewGetLocationsRowList[listViewIndex];
+                            return Container(
+                                width: 100, height: 100, color: Colors.green);
+                          },
+                        );
+                      },
                     ),
                   ),
                 ],
