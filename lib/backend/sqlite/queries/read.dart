@@ -22,6 +22,7 @@ class GetLocationsRow extends SqliteRow {
   GetLocationsRow(super.data);
 
   String get location => data['Location'] as String;
+  int get id => data['ID'] as int;
 }
 
 /// END GET LOCATIONS
