@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-
 import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
