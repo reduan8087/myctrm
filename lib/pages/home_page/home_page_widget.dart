@@ -115,7 +115,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                               color: Colors.transparent,
                               child: ListTile(
                                 title: Text(
-                                  homePageGetLocationsRowList.first.location,
+                                  _model.ctrmlocationnames!.first.location,
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
@@ -124,8 +124,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       ),
                                 ),
                                 subtitle: Text(
-                                  homePageGetLocationsRowList.first.id
-                                      .toString(),
+                                  _model.ctrmlocationnames!.first.id.toString(),
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
