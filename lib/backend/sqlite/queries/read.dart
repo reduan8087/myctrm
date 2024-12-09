@@ -13,7 +13,7 @@ Future<List<GetLocationsRow>> performGetLocations(
   Database database,
 ) {
   const query = '''
-SELECT *  Location FROM ctrm;
+SELECT *  Location FROM Location;
 ''';
   return _readQuery(database, query, (d) => GetLocationsRow(d));
 }
